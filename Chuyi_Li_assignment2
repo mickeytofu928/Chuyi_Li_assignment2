@@ -1,0 +1,71 @@
+const itemsObject = [
+  { quantity: 1, price: 200 },
+  { quantity: 3, price: 350 },
+  { quantity: 5, price: 400 },
+];
+
+//Given the array, implement a function for generating a new array which doubles thequantity and price in each object.
+
+function doublePriceQuantity(items) {
+  let arr = [];
+  for (
+    let i = 0;
+    i < items.length;
+    i++ //use loop to check
+  ) {
+    let obj = {};
+    obj.quantity = 2 * items[i].quantity;
+    obj.price = 2 * items[i].price;
+    arr.push(obj);
+  }
+  return arr;
+}
+const newArray1 = doublePriceQuantity(itemsObject);
+console.log(newArray1);
+
+//Given the array, implement a function for generating a new array which contains item quantity > 2 and price > 300 only.
+
+function filterArray(items) {
+  let arr = [];
+  for (let i = 0; i < items.length; i++) {
+    if ((items[i].quantity > 2, items[i].price > 300)) {
+      let obj = {};
+      obj.quantity = items[i].quantity;
+      obj.price = items[i].price;
+      arr.push(obj);
+    }
+  }
+  return arr;
+}
+const newArray2 = filterArray(itemsObject);
+console.log(newArray2);
+
+//Given the array, implement a function to calculate the total value of the items.
+
+function calculateTotalValue(items) {
+  let totalValue = 0;
+  for (let i = 0; i < items.length; i++) {
+    totalValue += items[i].quantity * items[i].price;
+  }
+  return totalValue;
+}
+const totalValue = calculateTotalValue(itemsObject);
+console.log(`The Total Value of all the item are: $${totalValue}`);
+
+//Part 2 - Given the string, implement a function to remove all the non-alphabet characters and extra space in the string and convert the string to all lowercase.
+
+const string =
+  " Perhaps The Easiest-to-understand Case For Reduce Is To    Return The Sum Of All The Elements In An Array  ";
+
+function convertToNonAlphabet(str) {
+  str = str.toLowerCase(); //this converts to lower case
+  str = str.replace(/\s+/g, " ").trim(); //this removes all extra spaces
+
+  const regex = /[^A-Za-z0-9]/g;
+  str = str.replace(regex, " ");
+  return str;
+}
+
+//Now call the convert to string function
+const newStr = convertToNonAlphabet(string);
+console.log(`The new string is: ${newStr}`);
